@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>林小满</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(160deg, #fde4d2 0%, #f9c4ae 45%, #f5abab 75%, #f2b2c3 100%);
+      font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+      color: #7a3d3d;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 1rem 0;
+      background: rgba(255, 240, 230, 0.75);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    nav a {
+      color: #7a3d3d;
+      text-decoration: none;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 158, 158, 0.35);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 6.5rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-indent: 0.22em;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #a05a5a;
+      letter-spacing: 0.12em;
+    }
+
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 6.5rem 1.5rem;
+      scroll-margin-top: 4rem;
+    }
+
+    section h2 {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-indent: 0.3em;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2px;
+      margin: 1rem auto 0;
+      background: linear-gradient(90deg, #e8927c, #e08a9e);
+      border-radius: 2px;
+    }
+
+    .about p {
+      font-size: 1.15rem;
+      line-height: 2.2;
+      color: #8a4a4a;
+      text-align: center;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: rgba(255, 250, 246, 0.7);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(200, 100, 90, 0.06);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-cover {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .cover-1 {
+      background: linear-gradient(135deg, #f6c49c, #ec9d80);
+    }
+
+    .cover-2 {
+      background: linear-gradient(135deg, #f3ab9f, #e78e9e);
+    }
+
+    .cover-3 {
+      background: linear-gradient(135deg, #f0aabf, #dd88a8);
+    }
+
+    .cover-4 {
+      background: linear-gradient(135deg, #e3a2c8, #c283b8);
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(200, 100, 90, 0.14);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #a05a5a;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #b4642f;
+      background: rgba(255, 200, 150, 0.5);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    .contact {
+      text-align: center;
+      padding-bottom: 5rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .tag {
+      background: rgba(255, 250, 246, 0.6);
+      color: #8a4a4a;
+      font-size: 0.95rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(200, 100, 90, 0.1);
+      transition: transform 0.35s ease, background 0.35s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 250, 246, 0.9);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+      font-size: 0.9rem;
+      color: rgba(138, 74, 74, 0.6);
+      background: rgba(255, 240, 230, 0.5);
+    }
+
+    footer a {
+      color: rgba(122, 61, 61, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: #8a4a4a;
+      margin-bottom: 1rem;
+    }
+
+    .contact a {
+      font-size: 1.3rem;
+      color: #7a3d3d;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(122, 61, 61, 0.4);
+      padding-bottom: 2px;
+    }
+
+    .contact a:hover {
+      border-bottom-color: #7a3d3d;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+      .hero p {
+        font-size: 0.95rem;
+        letter-spacing: 0.06em;
+      }
+      nav {
+        gap: 1.2rem;
+      }
+      section {
+        padding: 4rem 1.25rem;
+      }
+      .about p br {
+        display: none;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">关于我</a>
+    <a href="#works">我的作品</a>
+    <a href="#contact">联系我</a>
+  </nav>
+
+  <header class="hero">
+    <h1>林小满</h1>
+    <p>一个爱折腾的产品经理,正在学用 AI 做点小东西</p>
+  </header>
+
+  <section id="about" class="about reveal">
+    <h2>关于我</h2>
+    <p>
+      我是一名产品经理,和需求、原型、用户打了多年交道。<br>
+      我最喜欢做的事,是把复杂的问题拆解成简单清晰的小块。<br>
+      这个网站是我用 Claude Code 亲手搭的,包括你看到的每一个字。
+    </p>
+    <div class="tags">
+      <span class="tag">☕ 手冲咖啡</span>
+      <span class="tag">🎞️ 胶片相机</span>
+      <span class="tag">🥾 城市徒步</span>
+      <span class="tag">📚 摆摊式读书</span>
+    </div>
+  </section>
+
+  <section id="works" class="reveal">
+    <h2>我的作品</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-cover cover-1">✨</div>
+        <div class="card-body">
+          <h3>小红书标题小帮手</h3>
+          <p>输入内容主题,一键生成几条吸引眼球的小红书标题。</p>
+          <span class="badge">整理中</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-cover cover-2">🖼️</div>
+        <div class="card-body">
+          <h3>家庭相册整理术</h3>
+          <p>自动按时间和人物给家庭照片分类,告别混乱的相册。</p>
+          <span class="badge">整理中</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-cover cover-3">📖</div>
+        <div class="card-body">
+          <h3>读书笔记生成器</h3>
+          <p>粘贴书摘,自动整理成结构化的读书笔记和金句卡片。</p>
+          <span class="badge">整理中</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-cover cover-4">🤖</div>
+        <div class="card-body">
+          <h3>Claude Code 学习笔记</h3>
+          <p>从 0 到 1,记录我和 AI 搭这个网站的全过程。</p>
+          <span class="badge">整理中</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact reveal">
+    <h2>联系我</h2>
+    <p>有想法想聊聊?欢迎写信给我</p>
+    <a href="mailto:zhaolei5414@gmail.com">zhaolei5414@gmail.com</a>
+  </section>
+
+  <footer>
+    微信:linxiaoman_pm &nbsp;·&nbsp; 邮箱:<a href="mailto:zhaolei5414@gmail.com">zhaolei5414@gmail.com</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
