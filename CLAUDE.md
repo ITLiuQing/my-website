@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-林小满(a product manager)的个人主页。纯静态单文件项目:所有 HTML、CSS、JS 都在 `index.html` 里,无构建工具、无依赖、无测试框架。
+林小满(a product manager)的个人主页。纯静态项目,无构建工具、无依赖、无测试框架:首页在 `index.html`,作品详情页在 `works/*.html`,每页的 CSS/JS 都内联在各自文件里。
 
 ## Development
 
@@ -25,6 +25,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **作品卡片**:新增卡片时,封面渐变从暖色系里选,且不与已有封面(cover-1 杏橙 / cover-2 珊瑚粉 / cover-3 玫瑰粉)重复
 - **移动端**:`@media (max-width: 600px)` 统一收留白、卡片单列、隐藏"关于我"的 `<br>`;不要用 `background-attachment: fixed`(iOS Safari 不支持)
 - 导航锚点平滑滚动依赖 `html { scroll-behavior: smooth }` 和各 section 的 `scroll-margin-top`
+- **详情页**(`works/*.html`):统一结构为 固定"← 返回首页"按钮 → 封面色块(沿用首页对应卡片渐变和 emoji)→ 标题 + "整理中"徽章 → 三段内容(解决什么问题 / 怎么做的 / 用下来的感受)→ 页脚署名;样式与首页同款(背景渐变、字体、reveal 淡入)
 
 ## Workflow
 

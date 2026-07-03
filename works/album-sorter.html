@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>家庭相册整理术 · 林小满</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(160deg, #fde4d2 0%, #f9c4ae 45%, #f5abab 75%, #f2b2c3 100%);
+      font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+      color: #7a3d3d;
+    }
+
+    .back {
+      position: fixed;
+      top: 1rem;
+      left: 1.2rem;
+      z-index: 10;
+      color: #7a3d3d;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 240, 230, 0.75);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(200, 100, 90, 0.1);
+      transition: background 0.35s ease;
+    }
+
+    .back:hover {
+      background: rgba(255, 158, 158, 0.35);
+    }
+
+    main {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 4.5rem;
+      flex: 1;
+    }
+
+    .cover {
+      height: 220px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      background: linear-gradient(135deg, #f3ab9f, #e78e9e);
+      box-shadow: 0 4px 14px rgba(200, 100, 90, 0.06);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-indent: 0.15em;
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .badge-line {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #b4642f;
+      background: rgba(255, 200, 150, 0.5);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    section {
+      margin-top: 3.5rem;
+    }
+
+    section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.2rem;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2px;
+      margin-top: 0.7rem;
+      background: linear-gradient(90deg, #e8927c, #e08a9e);
+      border-radius: 2px;
+    }
+
+    section p {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: #8a4a4a;
+    }
+
+    section p + p {
+      margin-top: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+      font-size: 0.9rem;
+      color: rgba(138, 74, 74, 0.6);
+      background: rgba(255, 240, 230, 0.5);
+    }
+
+    footer a {
+      color: rgba(122, 61, 61, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 4.5rem 1.25rem 3.5rem;
+      }
+      .cover {
+        height: 160px;
+        font-size: 3.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      section {
+        margin-top: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="../index.html">← 返回首页</a>
+
+  <main>
+    <div class="cover reveal">🖼️</div>
+    <h1 class="reveal">家庭相册整理术</h1>
+    <p class="badge-line reveal"><span class="badge">整理中</span></p>
+
+    <section class="reveal">
+      <h2>它解决什么问题</h2>
+      <p>家里的照片散落在手机、旧电脑和好几块移动硬盘里,加起来几万张。想找孩子周岁那天的照片,得靠回忆"大概是哪一年",再一个文件夹一个文件夹地翻。</p>
+      <p>这套整理术要做的事很朴素:让每一张照片都待在它该待的地方,想找的时候一分钟内找到。</p>
+    </section>
+
+    <section class="reveal">
+      <h2>我怎么做出来的</h2>
+      <p>我和 AI 一起写了一个整理脚本:先读取照片的拍摄时间,按"年份/月份"自动归档;再用本地的人脸识别把家人分组,给文件夹打上"孩子""爸妈""全家福"这样的标签。</p>
+      <p>整个过程都在自己电脑上完成,照片不用上传到任何网站——这是我一开始就定下的底线,家人的照片只属于家人。</p>
+    </section>
+
+    <section class="reveal">
+      <h2>用下来的感受</h2>
+      <p>第一次跑完脚本,看着原来一团乱麻的文件夹变成整整齐齐的时间线,那种感觉像给家里做了一次大扫除,通体舒畅。</p>
+      <p>现在每个月底跑一次成了习惯,顺手挑几张当月最喜欢的存进"精选"文件夹。整理照片这件事,从欠了很多年的债,变成了一个小小的仪式。</p>
+    </section>
+  </main>
+
+  <footer>
+    微信:linxiaoman_pm &nbsp;·&nbsp; 邮箱:<a href="mailto:zhaolei5414@gmail.com">zhaolei5414@gmail.com</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

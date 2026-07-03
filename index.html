@@ -176,6 +176,23 @@
       border-radius: 999px;
     }
 
+    a.card {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card-more {
+      float: right;
+      font-size: 0.85rem;
+      color: #a05a5a;
+      line-height: 1.9;
+      transition: color 0.35s ease;
+    }
+
+    a.card:hover .card-more {
+      color: #7a3d3d;
+    }
+
     .contact {
       text-align: center;
       padding-bottom: 5rem;
@@ -310,30 +327,33 @@
   <section id="works" class="reveal">
     <h2>我的作品</h2>
     <div class="cards">
-      <div class="card">
+      <a class="card" href="works/title-helper.html">
         <div class="card-cover cover-1">✨</div>
         <div class="card-body">
           <h3>小红书标题小帮手</h3>
           <p>输入内容主题,一键生成几条吸引眼球的小红书标题。</p>
           <span class="badge">整理中</span>
+          <span class="card-more">查看详情 →</span>
         </div>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="works/album-sorter.html">
         <div class="card-cover cover-2">🖼️</div>
         <div class="card-body">
           <h3>家庭相册整理术</h3>
           <p>自动按时间和人物给家庭照片分类,告别混乱的相册。</p>
           <span class="badge">整理中</span>
+          <span class="card-more">查看详情 →</span>
         </div>
-      </div>
-      <div class="card">
+      </a>
+      <a class="card" href="works/reading-notes.html">
         <div class="card-cover cover-3">📖</div>
         <div class="card-body">
           <h3>读书笔记生成器</h3>
           <p>粘贴书摘,自动整理成结构化的读书笔记和金句卡片。</p>
           <span class="badge">整理中</span>
+          <span class="card-more">查看详情 →</span>
         </div>
-      </div>
+      </a>
       <div class="card">
         <div class="card-cover cover-4">🤖</div>
         <div class="card-body">

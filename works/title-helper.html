@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小红书标题小帮手 · 林小满</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(160deg, #fde4d2 0%, #f9c4ae 45%, #f5abab 75%, #f2b2c3 100%);
+      font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", sans-serif;
+      color: #7a3d3d;
+    }
+
+    .back {
+      position: fixed;
+      top: 1rem;
+      left: 1.2rem;
+      z-index: 10;
+      color: #7a3d3d;
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 240, 230, 0.75);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(200, 100, 90, 0.1);
+      transition: background 0.35s ease;
+    }
+
+    .back:hover {
+      background: rgba(255, 158, 158, 0.35);
+    }
+
+    main {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 4.5rem;
+      flex: 1;
+    }
+
+    .cover {
+      height: 220px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      background: linear-gradient(135deg, #f6c49c, #ec9d80);
+      box-shadow: 0 4px 14px rgba(200, 100, 90, 0.06);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-indent: 0.15em;
+      text-align: center;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .badge-line {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      color: #b4642f;
+      background: rgba(255, 200, 150, 0.5);
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+    }
+
+    section {
+      margin-top: 3.5rem;
+    }
+
+    section h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      margin-bottom: 1.2rem;
+    }
+
+    section h2::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 2px;
+      margin-top: 0.7rem;
+      background: linear-gradient(90deg, #e8927c, #e08a9e);
+      border-radius: 2px;
+    }
+
+    section p {
+      font-size: 1.05rem;
+      line-height: 2;
+      color: #8a4a4a;
+    }
+
+    section p + p {
+      margin-top: 0.8rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 2.5rem;
+      font-size: 0.9rem;
+      color: rgba(138, 74, 74, 0.6);
+      background: rgba(255, 240, 230, 0.5);
+    }
+
+    footer a {
+      color: rgba(122, 61, 61, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 4.5rem 1.25rem 3.5rem;
+      }
+      .cover {
+        height: 160px;
+        font-size: 3.5rem;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      section {
+        margin-top: 2.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="../index.html">← 返回首页</a>
+
+  <main>
+    <div class="cover reveal">✨</div>
+    <h1 class="reveal">小红书标题小帮手</h1>
+    <p class="badge-line reveal"><span class="badge">整理中</span></p>
+
+    <section class="reveal">
+      <h2>它解决什么问题</h2>
+      <p>写小红书的人大概都有过这种体验:正文十分钟写完,标题卡了半小时。同样一篇笔记,标题起得好不好,打开率能差好几倍。</p>
+      <p>这个小工具就是为了治"标题拖延症"——输入你想写的主题,它一次给出几条风格不同的候选标题,让你从"憋"变成"挑"。</p>
+    </section>
+
+    <section class="reveal">
+      <h2>我怎么做出来的</h2>
+      <p>我先收集了一批自己刷到过、点进去过的标题,和 AI 一起把它们拆解成几种可复用的套路:数字清单型、悬念反差型、身份代入型、避坑警告型。</p>
+      <p>然后把这些套路写成一份"标题配方",做成一个简单的网页小工具:填入主题和目标人群,它按配方各生成一条,附带一句"为什么这条可能有效"的小注解。</p>
+    </section>
+
+    <section class="reveal">
+      <h2>用下来的感受</h2>
+      <p>它没有替我写标题,而是给了我一块起跳板——大多数时候我不会直接用生成的结果,但总能从里面挑出一个角度,再改成自己的话。</p>
+      <p>最意外的收获是,拆解套路的过程让我自己看标题的眼光也变毒了,现在刷小红书都在心里默默归类。</p>
+    </section>
+  </main>
+
+  <footer>
+    微信:linxiaoman_pm &nbsp;·&nbsp; 邮箱:<a href="mailto:zhaolei5414@gmail.com">zhaolei5414@gmail.com</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
